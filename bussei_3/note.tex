@@ -42,6 +42,9 @@
 \date{\today}
 \begin{document}
 \maketitle
+
+\tableofcontents
+2022/10/06/num1
 \section{紹介}
 ここではガイダンスを行う。
 まずは光物性から
@@ -129,4 +132,196 @@ $J_{ij}$ を正確に計算するというのは難しい。
 ここだけではまだ不十分でBCS理論がなきゃだめ。これは電子がフェルミ球を作っている不安定になると原子は束縛状態をとったほうが安定する。つまり対を作ろうとする。これがBCS理論。
 
 あとは授業で扱わないやるもあるが、強相関とかトポロジカル物質とかは扱わない。近藤効果も扱わない。
+
+
+2022/10/13/num2
+\section{屈折率とはなにか}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{fig2/Fig-2.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-2-jpg}
+\end{figure}
+光が屈折率$n$ の媒質に入ると波長が$1 /n$ になる。
+\[
+\lambda\to \frac{\lambda}{n}
+.\] 
+速さが光速の$1 /n$ で進むように見える
+\[
+c\to \frac{c}{n}
+.\] 
+様々な物質の屈折率 ($\lambda=\SI{0.5893}{\micro m}$)
+\begin{table}[H]
+	\centering
+	\caption{様々な物質の屈折率 ($\lambda=\SI{0.5893}{\micro m}$)}
+	\label{tab:2-1}
+	\begin{tabular}{ccc}\hline
+	 &n &密度($\si{g.cm^-3}$)\\ \hline
+	空気&1.000292&$1.3\times 10^{-3}$\\
+	水&1.333&$\sim 1$\\
+	ガラス&$\sim 1.5$&$2.2\sim 2.6$\\
+	ダイヤモンド&2.42&3.51\\ \hline
+	\end{tabular}
+\end{table}
+密度が大きいほど屈折率が大きい。
+密度と$n$ の関係。
+なぜ光の速さが見かけ上$c /n$ になるのか。なぜ波長が短くなるのか。
+これを簡単なモデルで考える。
+\subsection{物質中の光の(見かけ上の)速さの意味}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig2/Fig-3.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-3-jpg}
+\end{figure}
+P点での電場は
+\begin{tcolorbox}[colback=green!10!white]
+\begin{equation}
+\label{eq:2-1}
+\bm{E}=\bm{E}_s+\sum_{\text{物質中の全電荷}}^{} \bm{E}_{\text{各電荷}}=\bm{E}_s+\bm{E}_a
+.\end{equation}
+\end{tcolorbox}
+\eqref{eq:2-1}の第二項は二次光$\bm{E}_a$ と書かれる。
+
+ここで
+\begin{align*}
+	\label{eq:2-2}
+	\bm{E}_s&= \bm{E}_0 \cos (\omega t-kz) \\
+	&= \bm{E}_0 \cos \omega(t-\frac{z}{c}) \\
+	&\to  \bm{E}_0e^{i\omega(t-\frac{z}{c})} 
+	\stepcounter{equation}\tag{\theequation} 
+.\end{align*}
+ここで$\bm{E}_a$ の起源はなにか考える。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig2/Fig-4.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-4-jpg}
+\end{figure}
+光電場によって原子の中の電子が強制振動するとかんがえる。(固有振動数$\omega_0$)
+これは\textcolor{red}{ローレンツ振動子}と呼ばれる。
+一応この振動数$\omega_0$ は 1sから2pへの遷移振動数に対応する。
+
+\begin{equation}
+\label{eq:2-3}
+m_e \left( \frac{d^2x}{dt^2}+2\gamma \frac{dx}{dt}+\omega_0^2x \right) =-eE_s
+.\end{equation}
+簡単のため左辺第二項の摩擦項はゼロとする。
+
+量子力学との対応を考えると\eqref{eq:2-3}の固有振動数$\omega_0$は
+光による量子状態間遷移に対応する。
+
+\eqref{eq:2-3}に\eqref{eq:2-2}を代入すると
+\begin{equation}
+\label{eq:2-4}
+	x(t)=\frac{-eE_0}{m(\omega_0^2-\omega^2)}e^{i\omega t}:=-A(\omega)e^{i\omega t}
+.\end{equation}
+\eqref{eq:2-4}を二階微分して
+\begin{equation}
+\label{eq:2-5}
+	\frac{d^2x}{dt^2}=A(\omega)\omega^2e^{i\omega t}
+.\end{equation}
+双極子モーメントの振動によって電磁波の放射が起こる。
+十分遠方での解は
+\begin{equation}
+\label{eq:2-6}
+E_\text{各電荷} \sim \frac{eA(\omega)\omega^2}{4\pi\varepsilon_0c^2} \frac{e^{i\omega(t-\frac{r}{c})}}{r}
+.\end{equation}
+重要なのは指数の方の部分で点$P$ では電場が遅れているということである。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig2/Fig-5.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-5-jpg}
+\end{figure}
+\[
+r^2=\rho^2+z^2
+.\] 
+\[
+2r dr=2\rho d\rho 
+.\] 
+物質中の全電荷の寄与を足し合わせると
+\begin{equation}
+\label{eq:2-7}
+	E_a=\int_{0}^{\infty} \frac{eA(\omega)\omega^2}{4\pi\varepsilon_0c^2}\frac{e^{i\omega(t-\frac{r}{c})}}{r}\eta 2\pi \rho d\rho 
+.\end{equation}
+$E_a$ の積分は
+\begin{equation}
+\label{eq:2-8}
+\int_{0}^{\infty} \frac{e^{\frac{-i\omega r}{c}}}{r}\rho d\rho = \int_{z}^{\infty} e^{-i \frac{\omega}{c}r}dr  =+\frac{c}{i\omega}e^{-i \frac{\omega}{c}z}
+.\end{equation}
+を計算すれば良い。
+興味があれば動画の53:28みろ
+
+したがって最終結果は
+\begin{equation}
+\label{eq:2-9}
+	E_a=(-i)\frac{e}{2\varepsilon_0}A(\omega) \frac{\omega}{c}\eta\cdot  e^{i\omega(t-\frac{z}{c})}:=(-i)E_0B(\omega)e^{i\omega(t-\frac{z}{c})}
+.\end{equation}
+\eqref{eq:2-1}より点Pでの電場(の$x$成分)は
+\[
+E=E_s+E_a\sim E_0e^{i\omega(t-\frac{z}{c})}+E_0B(\omega)\cdot (-i)e^{i\omega(t-\frac{z}{c})}=E_0\left\{ 1-iB(\omega) \right\} e^{i\omega(t-\frac{z}{c})}
+.\] 
+ここで以下の近似
+\[
+e^{-ix}\sim 1-ix\quad (x\ll 1)
+.\] 
+を用いると
+\[
+E(t,z)\sim E_0e^{i\omega(t-\frac{z}{c}-\frac{B(\omega)}{\omega})}
+.\] 
+ここで指数の肩の$-\frac{B(\omega)}{\omega}$ が
+二次項による見かけ上の光の遅れに対応する。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{fig2/Fig-6.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-6-jpg}
+\end{figure}
+例えば簡単のため$z= \frac{2\pi c}{\omega}\cdot N $ のとき
+\begin{equation}
+\label{eq:2-11}
+	E(t)=E_0e^{i\omega(t-\frac{B(\omega)}{\omega})}
+.\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig2/Fig-7.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-7-jpg}
+\end{figure}
+\begin{tcolorbox}[colback=green!10!white]
+	$B(\omega)>0$ ならば光は見かけ上遅れて見える。
+\end{tcolorbox}
+この見かけ上遅れる効果を屈折率で表す。
+
+$B(\omega)=0$ のとき光は$\Delta z$ 進むのに$\Delta t=\Delta z /c$の時間がかかる。
+一方で$B(\omega)\neq 0$ のときは$\Delta t= \frac{n}{c}\Delta z$ の時間がかかるとして$n$ を定義する。
+その時間差は
+\[
+\frac{\Delta z}{c}(n-1)\to \frac{B(\omega)}{\omega}
+.\] 
+すなわち\eqref{eq:2-4}をもちいて変形していくと
+\[
+\frac{\Delta z}{c}(n-1)=\frac{B(\omega)}{\omega}=\frac{1}{E_0} \frac{eA(\omega)}{2\varepsilon_0 c}\times \eta=\frac{e^2}{2\varepsilon_0c}\frac{\eta}{m(\omega^2_0-\omega^2)}
+.\] 
+$N$ を単位体積当たりの原子数とすると
+\[
+\eta=N\times \Delta z
+.\] 
+したがって
+\begin{equation}
+\label{eq:2-12}
+	n=1+\frac{Ne^2}{2\varepsilon_0m}\frac{1}{\omega_0^2-\omega^2}
+.\end{equation}
+第二項が2次光の効果である。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig2/Fig-8.jpg}
+	%\caption{}
+	\label{fig:fig2-Fig-8-jpg}
+\end{figure}
+$\omega>\omega_0$ のとき$n<1$ となってこのとき$B(\omega)<0$ だから\eqref{eq:2-11}
+光は見かけ上真空より早く進む。
+光の\textcolor{red}{位相速度}は光速を超えることがある。
 \end{document}
