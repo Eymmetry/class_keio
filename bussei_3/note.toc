@@ -1,3 +1,7 @@
 \contentsline {section}{\numberline {1}紹介}{1}{section.1}%
-\contentsline {section}{\numberline {2}屈折率とはなにか}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}物質中の光の(見かけ上の)速さの意味}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {2}屈折率とはなにか}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}物質中の光の(見かけ上の)速さの意味}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}物質中の光の波長の意味}{9}{subsection.2.2}%
+\contentsline {section}{\numberline {3}物質中の光の伝搬とポラリトン}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}前sectionの問題点}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}物質中の運動方程式(EからP)}{15}{subsection.3.2}%

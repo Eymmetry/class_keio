@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,12pt]{jsarticle}
 \usepackage{amsmath,amssymb}
 %¥usepackage{mathpazo}
 \usepackage{amsthm}
@@ -54,7 +54,7 @@
 \bm{D}=\varepsilon \bm{E}
 .\] 
 誘電率は一般にテンソル量である。
-これを拡張して
+これを拡張して。
 \[
 \bm{D}(\omega)=\varepsilon(\omega)\bm{E}(\omega)
 .\] 
@@ -157,7 +157,7 @@ c\to \frac{c}{n}
 	\caption{様々な物質の屈折率 ($\lambda=\SI{0.5893}{\micro m}$)}
 	\label{tab:2-1}
 	\begin{tabular}{ccc}\hline
-	 &n &密度($\si{g.cm^-3}$)\\ \hline
+	 &$n$ &密度($\si{g.cm^-3}$)\\ \hline
 	空気&1.000292&$1.3\times 10^{-3}$\\
 	水&1.333&$\sim 1$\\
 	ガラス&$\sim 1.5$&$2.2\sim 2.6$\\
@@ -268,9 +268,10 @@ E=E_s+E_a\sim E_0e^{i\omega(t-\frac{z}{c})}+E_0B(\omega)\cdot (-i)e^{i\omega(t-\
 e^{-ix}\sim 1-ix\quad (x\ll 1)
 .\] 
 を用いると
-\[
+\begin{equation}
+\label{eq:2-10}
 E(t,z)\sim E_0e^{i\omega(t-\frac{z}{c}-\frac{B(\omega)}{\omega})}
-.\] 
+.\end{equation}
 ここで指数の肩の$-\frac{B(\omega)}{\omega}$ が
 二次項による見かけ上の光の遅れに対応する。
 \begin{figure}[H]
@@ -324,4 +325,259 @@ $N$ を単位体積当たりの原子数とすると
 $\omega>\omega_0$ のとき$n<1$ となってこのとき$B(\omega)<0$ だから\eqref{eq:2-11}
 光は見かけ上真空より早く進む。
 光の\textcolor{red}{位相速度}は光速を超えることがある。
+
+2022/10/20/num3
+
+\subsection{物質中の光の波長の意味}
+このsubsectionでは江馬先生の光物理学の基礎という本を用いている。
+
+
+原子シートモデルというのを考えた。
+これは物質を原子シートが何枚も重なったものと考える。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-2.jpg}
+	%\caption{fig3/Fig-2.jpg}
+	\label{fig:fig3-Fig-2-jpg}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-3.jpg}
+	%\caption{fig3/Fig-3.jpg}
+	\label{fig:fig3-Fig-3-jpg}
+\end{figure}
+
+\[
+E_s=E_0e^{i(kz-\omega t)}
+.\] 
+\[
+	E_a=\tilde{r}E_s=\tilde{r}E_0e^{i(kz-\omega t)}
+.\] 
+\begin{equation}
+\label{eq:3-13}
+E_r=\tilde{r}E_0e^{-i(kz+\omega t)}
+.\end{equation}
+ただし位相のズレがあるため$\tilde{r}$ は複素数である
+\begin{equation}
+\label{eq:3-14}
+\tilde{r}=re^{i\delta}
+.\end{equation}
+透過光を$E_1$とおくと
+\begin{equation}
+\label{eq:3-15}
+	E_1=E_s+E_a=E_0(1+re^{i\delta})e^{i(kz-\omega t)}
+.\end{equation}
+ここで$(1+re^{i\delta})$ の項では\textcolor{red}{エネルギーは増えないから$E_s$ と$E_a$は干渉で弱め合うはずである。}
+位相のズレを調べる。
+エネルギー保存則から
+\begin{equation}
+\label{eq:3-16}
+	\abs{E_s}^2=\abs{E_1}^2+\abs{E_r}^2
+.\end{equation}
+でなければならない。
+	\[
+	E_0^2=E_0^2(1+r^2+2r\cos \delta+r^2)
+	.\] 
+	ゆえに
+	\begin{equation}
+	\label{eq:3-17}
+		\cos \delta=-r
+	.\end{equation}
+	\eqref{eq:3-15}から
+\begin{equation}
+\label{eq:3-18}
+	\abs{E_1}=E_0\sqrt{1-r^2} 
+.\end{equation}
+\[
+\abs{1+re^{i\delta}}=\sqrt{1+r^2+2r\cos \delta} =\sqrt{1-r^2} 
+.\] 
+この辺は位相が変わってたされたので振幅が減ってエネルギー的にはあっているということになる。
+
+\eqref{eq:3-15}の$E_1$ を
+\begin{equation}
+\label{eq:3-19}
+E_1=\abs{E_1}e^{i\delta_1}e^{i(kz-\omega t)}
+.\end{equation}
+とかくと
+\[
+\sin \delta_1=r
+.\] 
+となる。いまからこれを導く。
+\eqref{eq:3-15}と\eqref{eq:3-19}より
+\[
+E_0(1+re^{i\delta})=\abs{E_{1}}e^{i\delta_1}
+.\] 
+虚部を比較して
+\begin{equation}
+\label{eq:3-19'}
+E_0 r\sin \delta=\abs{E_1}\sin \delta_1
+.\end{equation}
+ここで\eqref{eq:3-17}より
+\[
+\sin \delta=\sqrt{1-\cos ^2\delta} =\sqrt{1-r^2} 
+.\] 
+また\eqref{eq:3-18}より
+\begin{equation}
+\label{eq:3-19''}
+	\abs{E_1}=E_0\sqrt{1-r^2} =E_0\sin \delta
+.\end{equation}
+\eqref{eq:3-19'}と\eqref{eq:3-19''}より
+\begin{equation}
+\label{eq:3-20}
+	\sin \delta_1=r
+.\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-4.jpg}
+	%\caption{fig3/Fig-4.jpg}
+	\label{fig:fig3-Fig-4-jpg}
+\end{figure}
+
+ここで$r\ll 1$ ならば
+\begin{equation}
+\label{eq:3-21}
+	\delta_1\sim r
+.\end{equation}
+すなわち原子シート一枚で位相が$r$ ずれる。
+なお\eqref{eq:2-10}より位相のずれ
+は$B(\omega)=\omega /c A(\omega)$だから
+\begin{equation}
+\label{eq:3-22}
+r \propto \frac{\omega}{c}A(\omega)
+.\end{equation}
+が成り立つ。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-5.jpg}
+	\caption{fig3/Fig-5.jpg}
+	\label{fig:fig3-Fig-5-jpg}
+\end{figure}
+原子一層通過すると正弦波が$-r /k$ だけずれる。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-6.jpg}
+	\caption{fig3/Fig-6.jpg}
+	\label{fig:fig3-Fig-6-jpg}
+\end{figure}
+$m$ 層通過すると$-r /k \cdot m$だけずれる。
+原子層の幅を$l$ として
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-7.jpg}
+	\caption{fig3/Fig-7.jpg}
+	\label{fig:fig3-Fig-7-jpg}
+\end{figure}
+したがって図より
+\begin{equation}
+\label{eq:3-23}
+	\lambda'=\lambda-\frac{r}{k}m
+.\end{equation}
+$m$ は$\lambda'$ の間に通過したシート数なので
+\begin{equation}
+\label{eq:3-24}
+	m=\frac{\lambda'}{l}
+.\end{equation}
+\eqref{eq:3-23}と\eqref{eq:3-24}と$\lambda' = \lambda /n$ から
+\begin{equation}
+\label{eq:3-25}
+	n=1+\frac{r}{kl}
+.\end{equation}
+\eqref{eq:3-22}を代入すると
+\begin{tcolorbox}[colback=green!10!white]
+\[
+n-1 \propto \frac{A(\omega)}{l}
+.\] 
+\textcolor{red}{屈折率は原子が密に並ぶほど、また強制振動の振幅が大きいほど大きい。}
+\end{tcolorbox}
+
+これはだいぶシンプルにした場合の話である。
+だって他の原子が放射した$E_a$ や$E_r$ がさらに励起する分を無視しているから
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-8.jpg}
+	%\caption{fig3/Fig-8.jpg}
+	\label{fig:fig3-Fig-8-jpg}
+\end{figure}
+\section{物質中の光の伝搬とポラリトン}
+\subsection{前sectionの問題点}
+透過光を
+\begin{equation}
+\label{eq:3-1}
+\bm{E}=\bm{E}_s+\bm{E}_a
+.\end{equation}
+として$\bm{E}_a$を計算した
+。
+しかしシートで反射され再び励起される二次光の効果などは取り入れられていない。現実の系はもっと複雑である。
+マクロな電場$\bm{E}$と分極$\bm{P}$を考え、Maxwell方程式の力を借りる。
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-9.jpg}
+	%\caption{fig3/Fig-9.jpg}
+	\label{fig:fig3-Fig-9-jpg}
+\end{figure}
+$\bm{E}$ は電磁場であって特徴的な長さは波長$\lambda\sim \SI{1}{\micro m}$である。一方で$\bm{P}$ というのは分極であって特徴的な長さは格子定数$\sim \SI{1}{\angstrom}$で全然違う。
+そこで$\bm{P}$ を平均化する.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fig3/Fig-10.jpg}
+	%\caption{fig3/Fig-10.jpg}
+	\label{fig:fig3-Fig-10-jpg}
+\end{figure}
+\begin{tcolorbox}[colback=green!10!white]
+$\bm{E}$は\textcolor{red}{入射光とすべての二次光を全部足し合わせた}電場の平均($E_s$ だけではない)
+
+$\bm{P}$は体積$V$ 内のすべての双極子モーメントの平均
+\begin{equation}
+\label{eq:3-2'}
+	\bm{P}=\frac{\sum_{i}^{} \mu_i}{V}
+.\end{equation}
+\end{tcolorbox}
+$\bm{E}$ と$\bm{P}$ の連立方程式を立てる。
+\subsection{物質中の運動方程式(EからP)}
+単位体積中に原子(のような振動子)が$N_0$ 個あった場合
+\begin{equation}
+\label{eq:3-2}
+\bm{P}=N_0 \bm{\mu}=-N_0e \bm{x}
+.\end{equation}
+したがって\eqref{eq:2-3}は
+\[
+\bm{x}=-\frac{\bm{P}}{N_0e}
+.\] 
+とおいて
+\begin{equation}
+\label{eq:3-3}
+	m\left( \frac{d^2}{dt^2}\bm{P}+2\gamma \frac{d}{dt}\bm{P}+\omega^2_0 \bm{P} \right) =N_0e^2\bm{E}
+.\end{equation}
+とかける。
+\begin{tcolorbox}[colback=green!10!white]
+分極の方程式は
+\begin{equation}
+\label{eq:3-4}
+\left( \frac{d^2}{dt^2}+2\gamma \frac{d}{dt}+\omega_0^2 \right) \bm{P}=\frac{N_0e^2}{m}\bm{E}
+.\end{equation}
+\end{tcolorbox}
+ただし\eqref{eq:3-4}式の$\bm{E}$ は二次光を含んだ\textcolor{red}{すべての電場の平均であり入射電場$E_s$ではない}。
+\[
+	\bm{E}=\tilde{\bm{E}}(\omega)e^{-i\omega t}
+.\] 
+\[
+	\bm{P}=\tilde{\bm{P}}(\omega)e^{-i\omega t}
+.\] 
+とおいたとき
+\[
+	(-\omega^2-2i\omega\gamma+\omega_0^2)\tilde{\bm{P}}(\omega)=\frac{N_0e}{m}\tilde{\bm{E}}(\omega)
+.\] 
+したがって
+\begin{equation}
+\label{eq:3-5}
+\tilde{\bm{P}}(\omega)=\frac{N_0e}{m}\times \frac{1}{\omega_0^2-\omega^2-2i\omega\gamma}\tilde{\bm{E}}(\omega):=\varepsilon_0 \tilde{\chi}(\omega)\tilde{\bm{E}}(\omega)
+.\end{equation}
+ここで$\varepsilon_0$ は真空の誘電率、$\tilde{\chi}(\omega)$ は電気感受率という。
+
+一般に$\tilde{\bm{P}}$が $\tilde{\bm{E}}$に比例するときに成立する光学を\textcolor{red}{線形光学}と呼ぶ
+
+$\tilde{\bm{E}}(\omega)$ が大きすぎると線形近似が成り立たなくなる。これが\textcolor{red}{非線型光学}。
 \end{document}
